@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
   //styleUrls: ['./app.component.scss'], // This is used to apply the CSS to the HTML code. styleUrls is an array of strings that specifies the location of the CSS file.
   //styles:['h1{color:blue}'] // This is used for inline CSS. 
   styleUrl:'./app.component.scss' // This is used for one external CSS file.
+
 })
 
 export class AppComponent {
   title = 'AngularTutorial';
+  name : string ="";
 }
