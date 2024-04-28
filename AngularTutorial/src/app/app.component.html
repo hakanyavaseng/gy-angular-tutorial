@@ -1,6 +1,12 @@
-<h3>Hello World!</h3>
- {{title}} <!--Output: Angular Tutorial -->
- {{3 | currency}} <!--Output: $3.00 -->
+<!-- <h3>Hello World!</h3> -->
+<!-- {{3 | currency}} Output: $3.00 -->
 
- <app-home></app-home>
- 
+<!-- {{title}} Output: Angular Tutorial (Text Interpolation Binding)  -->
+<!-- <input type="text" [value]="title"> Output: Angular Tutorial (Property Binding) -->
+<!-- <app-home [pageName]="title"></app-home>  Output: Angular Tutorial (Custom Property Binding) -->
+
+<!--Two Way Data Binding-->
+<input type="text" [(ngModel)]="name" /> <br />
+<input type="text" [(ngModel)]="name" /> <br />
+{{ name }}
+<!--End of Two Way Data Binding-->
