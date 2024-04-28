@@ -14,4 +14,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngularTutorial';
   name : string ="";
+  text : string = "Hello World!";
+  person : {name: string, surname:string};
 }
