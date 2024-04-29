@@ -46,9 +46,20 @@
 <!-- End of 06. Directives -->
 
 <!-- 07. Custom Directives -->
-
-<div appExample color="blue">
+<!-- 
+<div appExample color="blue" >
     Hello!
 </div>
+ -->
 
 <!-- 07. End of Custom Directives -->
+
+<!-- 08. Structural Directives  -->
+
+<div *appCustomif="false">Hello!</div>
+
+<ul>
+  <!-- <li *appCustomStructuralFor="10; let i = index">Hakan {{i}}</li> -->
+  <li *appCustomStructuralFor="10;let i">Hakan - {{i}}</li>
+</ul>
+<!-- End of 08. Structural Directives  -->

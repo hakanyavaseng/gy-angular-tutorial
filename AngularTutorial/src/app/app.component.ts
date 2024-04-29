@@ -18,7 +18,9 @@ export class AppComponent {
   person : {name: string, surname:string};
 
   //06.Directives
-  names: string[] = ['John', 'Doe', 'Jane'];
-  visible: boolean = false;
-  number: number = 5;
+  // names: string[] = ['John', 'Doe', 'Jane'];
+  // visible: boolean = false;
+  // number: number = 5;
+
+  //08. Structural Directives
 }
