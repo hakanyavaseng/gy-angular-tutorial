@@ -1,5 +1,6 @@
 import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
+//07. Custom Directives
 @Directive({
   selector: '[appExample]' // This is the reference to the directive in the HTML file. 
                            // If [] is used, it means that the directive is an attribute directive.
