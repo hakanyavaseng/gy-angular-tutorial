@@ -11,13 +11,34 @@
 {{ name }}
 <!--End of Two Way Data Binding-->
 
-
 <!-- 05. Interpolation Syntax -->
-
-<p>{{text}}</p> 
+<!-- <p>{{text}}</p> 
 <p ngNonBindable>{{text}}</p> 
 
- <p>{{person?.name}}</p> <!-- Interpolation Syntax and Nullable Operator -->
-<p>{{text | uppercase}}</p> <!--  Interpolation Syntax and Pipes -->
+ <p>{{person?.name}}</p> Interpolation Syntax and Nullable Operator
+<p>{{text | uppercase}}</p>  Interpolation Syntax and Pipes -->
 
 <!-- End of 05. Interpolation Syntax -->
+
+<!-- 06. Directives -->
+
+<!-- <ul>
+  <li *ngFor="let name of names; index as i">{{ name }} - {{ i }}</li>
+</ul> -->
+
+<!-- 
+<div *ngIf="true">Hello</div> Output: Hello
+<div *ngIf="false">World</div> Output: Nothing
+
+<div *ngIf="visible; else elseBlock"></div>
+<ng-template #elseBlock>ELSE BLOCK</ng-template> 
+ -->
+<!-- 
+ <div [ngSwitch]="number">
+    <div *ngSwitchCase="1">One</div>
+    <div *ngSwitchCase="2">Two</div>
+    <div *ngSwitchCase="3">Three</div>
+    <div *ngSwitchDefault>Default</div>
+</div>
+ -->
+<!-- End of 06. Directives -->
