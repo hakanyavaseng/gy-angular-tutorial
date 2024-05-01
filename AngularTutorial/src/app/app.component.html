@@ -56,10 +56,22 @@
 
 <!-- 08. Structural Directives  -->
 
-<div *appCustomif="false">Hello!</div>
+<!-- <div *appCustomif="false">Hello!</div> -->
 
 <ul>
   <!-- <li *appCustomStructuralFor="10; let i = index">Hakan {{i}}</li> -->
   <!-- <li *appCustomStructuralFor="10;let i">Hakan - {{i}}</li>  Implicit  -->
 </ul>
 <!-- End of 08. Structural Directives  -->
+
+
+<!-- 09.Pipes -->
+
+{{name | uppercase}} 
+
+{{1000 | currency}}
+
+{{example| custom : 1:7}}
+
+
+<!-- End of 09.Pipes -->
