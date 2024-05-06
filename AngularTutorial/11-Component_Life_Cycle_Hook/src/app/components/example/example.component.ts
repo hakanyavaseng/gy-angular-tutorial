@@ -45,7 +45,7 @@ export class ExampleComponent implements OnChanges, OnInit, DoCheck, AfterConten
     console.log("ngAfterViewChecked called");
   }
 
-  //ngOnDestroy is called when the component is destroyed
+  //ngOnDestroy is called when the component is destroyed, like destructor but not exactly same
   ngOnDestroy(): void {
     console.log("ngOnDestroy called");
   }
