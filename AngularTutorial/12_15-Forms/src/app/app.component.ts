@@ -1,17 +1,17 @@
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   template: `
-   <h3>Template-driven Form</h3>
-   <form #frm="ngForm" (ngSubmit)="onSubmit(frm.value)">
+  <!-- 
+    <h3>Template-driven Form</h3>
+    <form #frm="ngForm" (ngSubmit)="onSubmit(frm.value)">
 
       <input type="text" name="name" placeholder="Name"  ngModel> <br>  
       <input type="text" name="surname" placeholder="Surname"  ngModel>  <br> 
       <input type="text" name="email" placeholder="Email" ngModel>   <br>
-      <!-- // If tel wouldn't be a ngModel, it wouldn't be included in the form data -->
       <input type="text" name="tel" placeholder="Tel" ngModel> <br>  
 
       <div ngModelGroup="address"> 
@@ -22,22 +22,87 @@ import { NgForm } from '@angular/forms';
 
       <button type="submit">Submit</button>
     </form>
+   -->
+
+  <h3>Reactive Form</h3>
+  <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Name"> <br>
+    <input type="text" formControlName="surname" placeholder="Surname"> <br>
+    <input type="text" formControlName="email" placeholder="Email"> <br>
+    <input type="text" formControlName="tel" placeholder="Tel"> <br>
+
+    <div formGroupName="address">
+      <input type="text" formControlName="country" placeholder="Country"> <br>
+      <input type="text" formControlName="city" placeholder="City"> <br>
+      <input type="text" formControlName="address" placeholder="Address"> <br>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <button (click)="ok()">Ok</button>
+
+  Valid: {{frm.valid}} <br>
+
+   
   `,
 })
 export class AppComponent {
+  // Reactive Forms
+  frm: FormGroup;
+  constructor(private formBuilder: FormBuilder) {
+    this.frm = formBuilder.group({
+      name: ["", Validators.required],
+      surname: ["yavas", Validators.required],
+      email: ["", Validators.compose([Validators.email, Validators.required])],
+      tel: ["", Validators.minLength(10)],
+      address: formBuilder.group({
+        country: [""],
+        city: [""],
+        address: [""]
+      })
+    })
 
-  @ViewChild("frm", { static: true }) frm : NgForm
+    // Subscribe to the valueChanges event of the form
+    this.frm.valueChanges.subscribe({
+      next: data => {
+        console.log("Form value has changed. New value: " + JSON.stringify(data));
+      }
+    })
+
+    this.frm.get("name").valueChanges.subscribe({
+      next: data => {
+        console.log("Name field value has changed. New value: " + data);
+      }
+    })
+  }
+
+  onSubmit() {
+    console.log(this.frm.value);
+  }
+
+  ok() {
+    // onlySelf: true => It does not trigger the valueChanges event so in the form, the value of the input field does not change.
+    this.frm.get("name").setValue("Hakan", { onlySelf: true }); 
+  }
+
+  //-----------------------------------------------------------------------------------
+
+  /* Template-Driven Forms
+  @ViewChild("frm", { static: true }) frm: NgForm
 
   onSubmit(data: any) {
     console.log(this.frm.value); // Returns the all FormControls in the FormGroup
     // {name: 'Hakan', surname: 'Yavaş', email: 'admin@gmail.com', tel: '543 3054301'}
 
     console.log(this.frm.valid); // Returns the validation status of the form
-    
+
     console.log(this.frm.touched); // Returns the touched status of the form
 
     console.log(this.frm.submitted); // Returns the submitted status of the form
 
     console.log(data);
-  }
+    
+  }*/
+
+  
 }
