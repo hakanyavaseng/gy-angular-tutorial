@@ -39,14 +39,30 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
     <button type="submit">Submit</button>
   </form>
 
-  <button (click)="ok()">Ok</button>
+  <!-- <button (click)="ok()">Ok</button>
 
-  Valid: {{frm.valid}} <br>
+  Valid: {{frm.valid}} <br> -->
+
+  <button (click)="markAsTouched()">Mark as Touched</button><br>
+  <button (click)="markAsAllTouched()">Mark as All Touched</button><br>
+  <button (click)="markAsUntouched()">Mark as Untouched</button><br>
+  <button (click)="markAsDirty()">Mark as Dirty</button><br>
+  <button (click)="markAsPristine()">Mark as Pristine</button><br>
+  <button (click)="disable()">Disable</button><br>
+  <button (click)="enable()">Enable</button><br>
+
+  Form Touched: {{frm.touched}} <br>
+  "name" Form Control Touched: {{frm.get("name").touched}} <br>
+  "country" Form Control Touched: {{frm.get("address").get("country").touched}} <br>
+  <hr>
+  Form Dirty: {{frm.dirty}} <br>
+
 
    
   `,
 })
 export class AppComponent {
+  
   // Reactive Forms
   frm: FormGroup;
   constructor(private formBuilder: FormBuilder) {
@@ -63,6 +79,7 @@ export class AppComponent {
     })
 
     // Subscribe to the valueChanges event of the form
+    /*
     this.frm.valueChanges.subscribe({
       next: data => {
         console.log("Form value has changed. New value: " + JSON.stringify(data));
@@ -73,7 +90,7 @@ export class AppComponent {
       next: data => {
         console.log("Name field value has changed. New value: " + data);
       }
-    })
+    })*/
   }
 
   onSubmit() {
@@ -85,6 +102,36 @@ export class AppComponent {
     this.frm.get("name").setValue("Hakan", { onlySelf: true }); 
   }
 
+  //Status Changes Functions
+  markAsTouched() {
+   this.frm.markAsTouched();
+  }
+
+  markAsAllTouched() {
+    this.frm.markAllAsTouched();
+    //this.frm.get("address").markAllAsTouched();
+  }
+
+  markAsUntouched() {
+    this.frm.markAsUntouched();
+  }
+
+  markAsDirty() {
+    this.frm.markAsDirty();
+  }
+
+  markAsPristine() {
+    this.frm.markAsPristine();
+  }
+
+  disable() {
+    this.frm.disable();
+  }
+
+  enable() {
+    this.frm.enable();
+  }
+  
   //-----------------------------------------------------------------------------------
 
   /* Template-Driven Forms
@@ -103,6 +150,8 @@ export class AppComponent {
     console.log(data);
     
   }*/
+
+
 
   
 }
