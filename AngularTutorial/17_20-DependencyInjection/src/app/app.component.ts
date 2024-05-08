@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { ProductService } from './productservice';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+  <h3>Dependency Injection</h3>
+  `,
 })
 export class AppComponent {
-  title = '17_20-DependencyInjection';
+ 
+  constructor(private productService : ProductService) {
+    console.log(this.productService.getProducts());
+  }
 }

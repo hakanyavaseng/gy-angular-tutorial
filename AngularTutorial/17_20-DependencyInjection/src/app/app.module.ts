@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProductService } from './productservice';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProductService], // Providers are services that are available to all components of the application, to use DI in the application, we need to register the services in the providers array of the module.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
