@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ProductService } from './productservice';
+import { productServiceIT } from './injection-token';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,17 @@ import { ProductService } from './productservice';
 })
 export class AppComponent {
  
-  constructor(private productService : ProductService) {
-    console.log(this.productService.getProducts());
+
+  //constructor(@Inject("ProductService") private productService : ProductService) { // Injecting the ProductService using the string token.
+   constructor(//@Inject(productServiceIT) private productService : ProductService,// Injecting the ProductService using the InjectionToken.
+  //@Inject("example") value: string,
+ // @Inject("example") func : any
+ @Inject("productService") productService : ProductService
+) 
+
+{ 
+    // console.log(this.productService.getProducts());
+    // console.log(value);
+    // console.log(func());
   }
 }
