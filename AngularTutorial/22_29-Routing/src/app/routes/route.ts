@@ -14,6 +14,10 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
+        path: "home/:id",
+        component: HomeComponent
+    },
+    {
         path: "about",
         component: AboutComponent
     },
@@ -23,6 +27,6 @@ export const routes: Routes = [
     },  
     {/// !!! WILDCARD ROUTE CAN BE DEFINED AT THE END OF THE ROUTES ARRAY BECAUSE IT WILL BE USED WHEN THE REQUESTED ROUTE IS NOT FOUND, OTHERWISE IT WILL BE USED FOR ALL ROUTES
         path: "**", // This is the wildcard route, it will be used when the requested route is not found
-        redirectTo: "home" // This will redirect to the home route, an error page can be shown here
+        redirectTo: "error" // This will redirect to the error route, an error page can be shown here
     }
 ]
