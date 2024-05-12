@@ -11,6 +11,9 @@ import { routes } from './routes/route';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { CountComponent } from './components/product/product-detail/count/count.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './components/admin/admin.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,17 @@ import { CountComponent } from './components/product/product-detail/count/count.
     ContactComponent,
     ProductComponent,
     ProductDetailComponent,
-    CountComponent
+    CountComponent,
+    AdminComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

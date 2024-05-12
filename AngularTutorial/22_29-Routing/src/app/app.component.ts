@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-  <a routerLinkActive="active" routerLink="home">Home</a> | <a routerLinkActive="active" [queryParams]="{x:3}" queryParamsHandling="merge" routerLink="about">About</a> | <a routerLinkActive="active" [queryParams]="contactQueryString" [routerLink] = "['contact','a','b','c']">Contact</a>
+  <a routerLinkActive="active" routerLink="home">Home</a> | <a routerLinkActive="active" [queryParams]="{x:3}" queryParamsHandling="preserve" routerLink="about">About</a> | <a routerLinkActive="active" [queryParams]="contactQueryString" [routerLink] = "['contact','a','b','c']">Contact</a>
   <hr>
-  <a routerLinkActive="active" routerLink="products">Products</a>
+  <a routerLinkActive="active" routerLink="products">Products</a> | <a routerLinkActive="active" routerLink="dashboard">Dashboard</a>
   <router-outlet></router-outlet> <!-- This is where the router will display the components -->
   <br>
   <button (click)="navigate()">Navigate</button>
