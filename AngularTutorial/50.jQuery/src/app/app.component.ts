@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+declare var $: any;
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -9,5 +11,20 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = '50.jQuery';
+
+  onClick() {
+    $(".d").fadeOut().fadeIn();
+  }
+
+  onClick2(div) {
+    $(div).fadeToggle();
+  }
 }
+
+$(document).ready(() => {
+
+  console.log('jQuery is ready');
+
+});
