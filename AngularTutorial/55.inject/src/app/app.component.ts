@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { BaseComponent } from './base.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,17 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = '55.inject';
+export class AppComponent extends BaseComponent {
+  constructor() {
+    super();
+  }
+  
+  getTitle() {
+    console.log(this.title.getTitle());
+    return this.title.getTitle();
+  }
+
+ 
+
+
 }
